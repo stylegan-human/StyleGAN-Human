@@ -16,6 +16,7 @@ Jianglin Fu, Shikai Li, [Yuming Jiang](https://yumingj.github.io/), [Kwan-Yee Li
 
 ## Updates
 
+- [04/2022] Paper will be released before May!
 - [04/2022] This code and project page is created.
 
 ## Model Zoo

@@ -16,8 +16,8 @@ Jianglin Fu, Shikai Li, [Yuming Jiang](https://yumingj.github.io/), [Kwan-Yee Li
 
 ## Updates
 
-- [22/04/2022] Paper will be released before May!
-- [21/04/2022] This code and project page is created.
+- [22/04/2022] Technical report will be released before May.
+- [21/04/2022] The codebase and project page are created.
 
 ## Model Zoo
 
@@ -142,7 +142,7 @@ If you find this work useful for your research, please consider citing our paper
 ```bibtex
 @article{fu2022styleganhuman,
       title={StyleGAN-Human: A Data-Centric Odyssey of Human Generation}, 
-      author={Fu, Jianglin and Li, Shikai and Jiang, Yuming and Lin, Kwan-Yee and Qian, Chen and Loy, Chen-Change and Wu, Wayne and Liu, Ziwei },
+      author={Fu, Jianglin and Li, Shikai and Jiang, Yuming and Lin, Kwan-Yee and Qian, Chen and Loy, Chen-Change and Wu, Wayne and Liu, Ziwei},
       journal   = {arXiv preprint},
       volume    = {arXiv:xxxx.xxxxx},
       year    = {2022}

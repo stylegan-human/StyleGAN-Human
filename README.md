@@ -28,7 +28,13 @@ Jianglin Fu, Shikai Li, [Yuming Jiang](https://yumingj.github.io/), [Kwan-Yee Li
 | StyleGAN3 |to be released |   [stylegan_human_v3_512.pkl]() | 
 
 
-## Web Demo <a href="https://colab.research.google.com/drive/1sgxoDM55iM07FS54vz9ALg1XckiYA2On"><img src="https://colab.research.google.com/assets/colab-badge.svg" height=22.5></a> 
+## Web Demo 
+
+Integrated into [Huggingface Spaces 🤗](https://huggingface.co/spaces) using [Gradio](https://github.com/gradio-app/gradio). Try out the Web Demo for generation: [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/hysts/StyleGAN-Human) and interpolation [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/hysts/StyleGAN-Human-Interpolation)
+
+
+
+<a href="https://colab.research.google.com/drive/1sgxoDM55iM07FS54vz9ALg1XckiYA2On"><img src="https://colab.research.google.com/assets/colab-badge.svg" height=22.5></a> 
 
 We prepare a Colab demo to allow you to synthesize images with the provided models, as well as visualize the performance of style-mixing, interpolation, and attributes editing.
 The notebook will guide you to install the necessary environment and download pretrained models. The output images can be found in `./StyleGAN-Human/outputs/`.

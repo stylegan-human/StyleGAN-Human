@@ -16,7 +16,7 @@
 
 ## Updates
 
-- [26/04/2022] Techincal report released!
+- [26/04/2022] Technical report released!
 - [22/04/2022] Technical report will be released before May.
 - [21/04/2022] The codebase and project page are created.
 

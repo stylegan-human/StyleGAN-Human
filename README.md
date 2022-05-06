@@ -46,7 +46,7 @@ Hope you enjoy!
 ### System requirements
 * The original code bases are [stylegan (tensorflow)](https://github.com/NVlabs/stylegan), [stylegan2-ada (pytorch)](https://github.com/NVlabs/stylegan2-ada-pytorch), [stylegan3 (pytorch)](https://github.com/NVlabs/stylegan3), released by NVidia
 
-* We tested in Python 3.8.5 and PyTorch 1.9.1 with CUDA 11.1 as well as Pytorch 1.7.1 with CUDA 10.1. (See https://pytorch.org for PyTorch install instructions.)
+* We tested in Python 3.8.5 and PyTorch 1.9.1 with CUDA 11.1. (See https://pytorch.org for PyTorch install instructions.)
 
 ### Installation
 To work with this project on your own machine, you need to install the environmnet as follows: 
@@ -83,7 +83,13 @@ python generate.py --outdir=outputs/generate/stylegan_human_v2_1024 --trunc=0.8 
 
 # Generate human full-body images using stylegan V1
 python generate.py --outdir=outputs/generate/stylegan_human_v1_1024 --network=pretrained_models/stylegan_human_v1_1024.pkl --version 1 --seeds=1,3,5
+
+# Generate human full-body images using stylegan V3
+python generate.py --outdir=outputs/generate/stylegan_human_v3_512 --network=pretrained_models/stylegan_human_v3_512.pkl --version 3 --seeds=1,3,5
 ```
+
+#### Note: The following demos are generated based on models related to StyleGAN V2 (stylegan_human_v2_512.pkl and stylegan_human_v2_1024.pkl). If you want to see results for V1 or V3, you need to change the loading method of the corresponding models.
+
 
 ### Interpolation
 ```

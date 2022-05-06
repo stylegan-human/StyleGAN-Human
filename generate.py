@@ -44,7 +44,7 @@ python generate.py --outdir=outputs/generate/stylegan_human_v2_1024 --trunc=0.8 
 @click.option('--trunc', 'truncation_psi', type=float, help='Truncation psi', default=1, show_default=True)
 @click.option('--noise-mode', help='Noise mode', type=click.Choice(['const', 'random', 'none']), default='const', show_default=True)
 @click.option('--outdir', help='Where to save the output images', default= 'outputs/generate/' , type=str, required=True, metavar='DIR')
-@click.option('--version', help="stylegan version, 1 or 2", type=int, default=2)
+@click.option('--version', help="stylegan version, 1, 2 or 3", type=int, default=2)
 def generate_images(
     ctx: click.Context,
     network_pkl: str,
@@ -90,7 +90,7 @@ def generate_images(
             images = Gs.run(z, None, truncation_psi=truncation_psi, randomize_noise=randomize_noise, output_transform=fmt)
             PIL.Image.fromarray(images[0], 'RGB').save(f'{outdir}/seed{seed:04d}.png')
 
-        else: ## stylegan v2
+        else: ## stylegan v2/v3
             label = torch.zeros([1, G.c_dim], device=device)
             z = torch.from_numpy(np.random.RandomState(seed).randn(1, G.z_dim)).to(device)
             if target_z.size==0:

@@ -22,11 +22,12 @@
 
 ## Model Zoo
 
-| Structure | 1024x512 |  512x256 |
-| --------- |:----------:|  :-----: | 
-| StyleGAN1 |[stylegan_human_v1_1024.pkl](https://drive.google.com/file/d/1h-R-IV-INGdPEzj4P9ml6JTEvihuNgLX/view?usp=sharing)| to be released | 
-| StyleGAN2 |[stylegan_human_v2_1024.pkl](https://drive.google.com/file/d/1FlAb1rYa0r_--Zj_ML8e6shmaF28hQb5/view?usp=sharing)| [stylegan_human_v2_512.pkl](https://drive.google.com/file/d/1dlFEHbu-WzQWJl7nBBZYcTyo000H9hVm/view?usp=sharing) |
-| StyleGAN3 |to be released |   [stylegan_human_v3_512.pkl](https://drive.google.com/file/d/1_274jk_N6WSCkKWeu7hjHycqGvbuOFf5/view?usp=sharing) | 
+| Structure | 1024x512 | Metric | Scores |  512x256 | Metric | Scores | 
+| --------- |:----------:| :----------:| :----------:|  :-----: |  :-----: |  :-----: | 
+| StyleGAN1 |[stylegan_human_v1_1024.pkl](https://drive.google.com/file/d/1h-R-IV-INGdPEzj4P9ml6JTEvihuNgLX/view?usp=sharing)| fid50k | 3.79 | to be released | - | - |
+| StyleGAN2 |[stylegan_human_v2_1024.pkl](https://drive.google.com/file/d/1FlAb1rYa0r_--Zj_ML8e6shmaF28hQb5/view?usp=sharing)| fid50k_full | 1.97 |[stylegan_human_v2_512.pkl](https://drive.google.com/file/d/1dlFEHbu-WzQWJl7nBBZYcTyo000H9hVm/view?usp=sharing) | fid50k_full | 1.57 |
+| StyleGAN3 |to be released | - | - |  [stylegan_human_v3_512.pkl](https://drive.google.com/file/d/1_274jk_N6WSCkKWeu7hjHycqGvbuOFf5/view?usp=sharing) | fid50k_full | 2.54 |
+
 
 
 ## Web Demo 

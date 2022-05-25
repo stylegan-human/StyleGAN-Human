@@ -1,0 +1,53 @@
+# Configuration for Cog ⚙️
+# Reference: https://github.com/replicate/cog/blob/main/docs/yaml.md
+
+image: "r8.im/stylegan-human/stylegan-human"
+build:
+  # set to true if your model requires a GPU
+  gpu: true
+
+  # a list of ubuntu apt packages to install
+  system_packages:
+    - "libgl1-mesa-glx"
+    - "libglib2.0-0"
+    - "ninja-build"
+    - "unzip"
+    - "cmake"
+
+  # python version in the form '3.8' or '3.8.12'
+  python_version: "3.8"
+
+  # a list of packages in the format <package-name>==<version>
+  python_packages:
+    - "click==8.0"
+    - "requests==2.26.0"
+    - "tqdm==4.62.2"
+    - "pillow==8.3.1"
+    - "numpy==1.20"
+    - "imgui==1.3.0"
+    - "glfw==2.2.0"
+    - "pyopengl==3.1.5"
+    - "opencv-python==4.5.5.64"
+    - "pandas==1.4.2"
+    - "matplotlib==3.4.2"
+    - "imageio==2.9.0"
+    - "moviepy==1.0.3"
+    - "imageio-ffmpeg==0.4.3"
+    - "lpips==0.1.4"
+    - "pyspng==0.1.0"
+    - "ninja==1.10.2"
+    - "torch==1.9.1"
+    - "scipy==1.7.1"
+    - "dlib==19.24.0"
+  
+  # commands run after the environment is setup
+  run:
+    - apt update -y && apt-get install ffmpeg -y
+    - wget https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-linux.zip
+    - unzip ninja-linux.zip -d /usr/local/bin/
+    - update-alternatives --install /usr/bin/ninja ninja /usr/local/bin/ninja 1 --force 
+    - mkdir -p /root/.cache/torch/hub/checkpoints/
+    - wget https://download.pytorch.org/models/alexnet-owt-7be5be79.pth -O /root/.cache/torch/hub/checkpoints/alexnet-owt-7be5be79.pth
+
+# predict.py defines how predictions are run on your model
+predict: "cog_stylemixing.py:Predictor"

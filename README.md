@@ -153,7 +153,7 @@ python insetgan.py --body_network=pretrained_models/stylegan_human_v2_1024.pkl -
 ## Related Works
 * (SIGGRAPH 2022) **Text2Human: Text-Driven Controllable Human Image Generation**, Yuming Jiang et al. [[Paper](https://arxiv.org/pdf/2205.15996.pdf)], [[Code](https://github.com/yumingj/Text2Human)], [[Project Page](https://yumingj.github.io/projects/Text2Human.html)]
 * (ICCV 2021) **Talk-to-Edit: Fine-Grained Facial Editing via Dialog**, Yuming Jiang et al. [[Paper](https://arxiv.org/abs/2109.04425)], [[Code](https://github.com/yumingj/Talk-to-Edit)], [[Project Page](https://www.mmlab-ntu.com/project/talkedit/)]
-* (Technical Report 2022) **Generalizable Neural Performer: Learning Robust Radiance Fields for Human Novel View Synthesis**, Wei Cheng et al. [[Paper](https://arxiv.org/pdf/2204.11798.pdf)], [[Code](https://github.com/generalizable-neural-performer/gnr], [[Project Page](https://generalizable-neural-performer.github.io/)], [[Dataset](https://generalizable-neural-performer.github.io/genebody.html)]
+* (Technical Report 2022) **Generalizable Neural Performer: Learning Robust Radiance Fields for Human Novel View Synthesis**, Wei Cheng et al. [[Paper](https://arxiv.org/pdf/2204.11798.pdf)], [[Code](https://github.com/generalizable-neural-performer/gnr)], [[Project Page](https://generalizable-neural-performer.github.io/)], [[Dataset](https://generalizable-neural-performer.github.io/genebody.html)]
 
 ## Citation
 

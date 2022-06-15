@@ -16,6 +16,7 @@
 
 ## Updates
 
+- [15/06/2022] Data alignment and real-image inversion scripts are released. 
 - [26/04/2022] Technical report released!
 - [22/04/2022] Technical report will be released before May.
 - [21/04/2022] The codebase and project page are created.
@@ -89,6 +90,7 @@ python generate.py --outdir=outputs/generate/stylegan_human_v1_1024 --network=pr
 python generate.py --outdir=outputs/generate/stylegan_human_v3_512 --network=pretrained_models/stylegan_human_v3_512.pkl --version 3 --seeds=1,3,5
 ```
 
+
 #### Note: The following demos are generated based on models related to StyleGAN V2 (stylegan_human_v2_512.pkl and stylegan_human_v2_1024.pkl). If you want to see results for V1 or V3, you need to change the loading method of the corresponding models.
 
 
@@ -109,11 +111,48 @@ python stylemixing_video.py --network=pretrained_models/stylegan_human_v2_1024.p
     --col-seeds=3098,31759,3791 --col-styles=8-12 --trunc=0.8 --outdir=outputs/stylemixing_video
 ```
 
+### Aligned raw images
+For alignment, we use [openpose-pytorch](https://github.com/Hzzone/pytorch-openpose) for body-keypoints detection and [PaddlePaddle](https://github.com/PaddlePaddle/PaddleSeg/tree/release/2.5/contrib/PP-HumanSeg) for human segmentation.
+Before running the alignment script, few models need to be installed:
+1. download [body_pose_model.pth](https://drive.google.com/drive/folders/1JsvI4M4ZTg98fmnCZLFM-3TeovnCRElG?usp=sharing) and place it into openpose/model/.
+2. download and extract [deeplabv3p_resnet50_os8_humanseg_512x512_100k_with_softmax](https://paddleseg.bj.bcebos.com/dygraph/humanseg/export/deeplabv3p_resnet50_os8_humanseg_512x512_100k_with_softmax.zip) into PP_HumanSeg/export_model/deeplabv3p_resnet50_os8_humanseg_512x512_100k_with_softmax.
+3. download and extract [deeplabv3p_resnet50_os8_humanseg_512x512_100k](https://paddleseg.bj.bcebos.com/dygraph/humanseg/train/deeplabv3p_resnet50_os8_humanseg_512x512_100k.zip) into PP_HumanSeg/pretrained_model/deeplabv3p_resnet50_os8_humanseg_512x512_100k.
+4. install paddlepaddel: ``` pip install paddleseg ```
+
+Then you can start alignment: 
+```
+python alignment.py --image-folder img/test/ --output-folder aligned_image/
+```
+
+### Invert real image with [PTI](https://github.com/danielroich/PTI)
+Before inversion, please download our PTI weights: [e4e_w+.pt](https://drive.google.com/file/d/1NUfSJqLhsrU7c9PwAtlZ9xtrxhzS_6tu/view?usp=sharing) into /pti/.
+
+Few parameters you can change:
+- /pti/pti_configs/hyperparameters.py:
+    - first_inv_type = 'w+' -> Use pretrained e4e encoder
+    - first_inv_type = 'w'  -> Use projection and optimization
+- /pti/pti_configs/paths_config.py:
+    - input_data_path: path of real images
+    - e4e: path of e4e_w+.pt
+    - stylegan2_ada_shhq: pretrained stylegan2-ada model for SHHQ
+
+```
+python run_pti.py
+```
+Note: we used the test image under 'aligned_image/' (the output of alignment.py), the inverted latent code and fine-tuned generator will be saved in 'outputs/pti/'
+
+
 ### Editing with InterfaceGAN, StyleSpace, and Sefa
 ```
 python edit.py --network pretrained_models/stylegan_human_v2_1024.pkl --attr_name upper_length \\
     --seeds 61531,61570,61571,61610 --outdir outputs/edit_results
 ``` 
+
+### Editing using inverted latent code
+```
+python edit.py ---network outputs/pti/checkpoints/model_test.pkl --attr_name upper_length \\
+    --outdir outputs/edit_results --real True --real_w_path outputs/pti/embeddings/test/PTI/test/0.pt --real_img_path aligned_image/test.png
+```
 
 Note: 
 1. ''upper_length'' and ''bottom_length'' of ''attr_name'' are available for demo.
@@ -146,7 +185,7 @@ python insetgan.py --body_network=pretrained_models/stylegan_human_v2_1024.pkl -
 - [ ] Release 1024x512 version of StyleGAN-Human based on StyleGAN3 
 - [ ] Release 512x256 version of StyleGAN-Human based on StyleGAN1 
 - [ ] Extension of downstream application (InsetGAN): Add face inversion interface to support fusing user face image and stylegen-human body image
-- [ ] Add Inversion Script into the provided editing pipeline
+- [x] Add Inversion Script into the provided editing pipeline
 - [ ] Release Dataset
 
 

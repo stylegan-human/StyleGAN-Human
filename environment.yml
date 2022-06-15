@@ -27,3 +27,4 @@ dependencies:
     - opencv-python
     - pandas
     - moviepy
+    - imutils

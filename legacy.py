@@ -19,8 +19,14 @@ from torch_utils import misc
 
 #----------------------------------------------------------------------------
 ## loading torch pkl
-def load_network_pkl(f, force_fp16=False):
+def load_network_pkl(f, force_fp16=False, G_only=False):
     data = _LegacyUnpickler(f).load()
+    if G_only:
+        f = open('ori_model_Gonly.txt','a+')
+    else: f = open('ori_model.txt','a+')
+    for key in data.keys():
+        f.write(str(data[key]))
+    f.close()
 
     ## We comment out this part, if you want to convert TF pickle, you can use the original script from StyleGAN2-ada-pytorch
     # # Legacy TensorFlow pickle => convert.
@@ -38,15 +44,19 @@ def load_network_pkl(f, force_fp16=False):
         data['augment_pipe'] = None
 
     # Validate contents.
-    assert isinstance(data['G'], torch.nn.Module)
-    assert isinstance(data['D'], torch.nn.Module)
     assert isinstance(data['G_ema'], torch.nn.Module)
-    assert isinstance(data['training_set_kwargs'], (dict, type(None)))
-    assert isinstance(data['augment_pipe'], (torch.nn.Module, type(None)))
+    if not G_only:
+        assert isinstance(data['D'], torch.nn.Module)
+        assert isinstance(data['G'], torch.nn.Module)
+        assert isinstance(data['training_set_kwargs'], (dict, type(None)))
+        assert isinstance(data['augment_pipe'], (torch.nn.Module, type(None)))
 
     # Force FP16.
     if force_fp16:
-        for key in ['G', 'D', 'G_ema']:
+        if G_only:
+            convert_list = ['G_ema'] #'G'
+        else: convert_list = ['G', 'D', 'G_ema']
+        for key in convert_list:
             old = data[key]
             kwargs = copy.deepcopy(old.init_kwargs)
             if key.startswith('G'):
@@ -83,40 +93,7 @@ def num_range(s: str) -> List[int]:
     vals = s.split(',')
     return [int(x) for x in vals]
 
-# # My extended version of this helper function:
-# def _parse_num_range(s):
-#     '''
-#     Input:
-#         s (str): Comma separated string of numbers 'a,b,c', a range 'a-c',
-#         or even a combination of both 'a,b-c', 'a-b,c', 'a,b-c,d,e-f,...'
-#     Output:
-#         nums (list): Ordered list of ascending ints in s, with repeating values deleted
-#     '''
-#     # Sanity check 0:
-#     # In case there's a space between the numbers (impossible due to argparse,
-#     # but hey, I am that paranoid):
-#     s = s.replace(' ', '')
-#     # Split w.r.t comma
-#     str_list = s.split(',')
-#     nums = []
-#     for el in str_list:
-#         if '-' in el:
-#             # The range will be 'a-b', so we wish to find both a and b using re:
-#             range_re = re.compile(r'^(\d+)-(\d+)$')
-#             match = range_re.match(el)
-#             # We get the two numbers:
-#             a = int(match.group(1))
-#             b = int(match.group(2))
-#             # Sanity check 1: accept 'a-b' or 'b-a', with a<=b:
-#             if a <= b: r = [n for n in range(a, b + 1)]
-#             else: r = [n for n in range(b, a + 1)]
-#             # Use extend since r will also be an array:
-#             nums.extend(r)
-#         else:
-#             nums.append(int(el))
-#     # Sanity check 2: delete repeating numbers:
-#     nums = list(set(nums))
-#     return nums #sorted(nums)
+
 
 #----------------------------------------------------------------------------
 #### loading tf pkl
@@ -181,9 +158,9 @@ def determine_config(state_nv):
     return n_mapping, n_layers
 
 
-def convert(network_pkl, output_file):
+def convert(network_pkl, output_file, G_only=False):
     with dnnlib.util.open_url(network_pkl) as f:
-        G_nvidia = load_network_pkl(f)['G_ema']
+        G_nvidia = load_network_pkl(f,G_only=G_only)['G_ema']
 
     state_nv = G_nvidia.state_dict()
     n_mapping, n_layers = determine_config(state_nv)
@@ -212,5 +189,12 @@ def convert(network_pkl, output_file):
     # https://github.com/yuval-alaluf/restyle-encoder/issues/1#issuecomment-828354736
     latent_avg = state_nv['mapping.w_avg']
     state_dict = {"g_ema": state_ros, "latent_avg": latent_avg}
+    # if G_only:
+    #     f = open('converted_model_Gonly.txt','a+')
+    # else:
+    #     f = open('converted_model.txt','a+')
+    # for key in state_dict['g_ema'].keys():
+    #     f.write(str(key)+': '+str(state_dict['g_ema'][key].shape)+'\n')
+    # f.close()
     torch.save(state_dict, output_file)
 

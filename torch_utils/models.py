@@ -474,6 +474,7 @@ class Generator(nn.Module):
         input_is_latent=False,
         noise=None,
         randomize_noise=True,
+        real=False,
     ):
         if not input_is_latent:
             styles = [self.style(s) for s in styles]
@@ -487,34 +488,41 @@ class Generator(nn.Module):
                 ]
 
         if truncation < 1:
-            style_t = []
+            # print('truncation_latent: ', truncation_latent.shape)
+            if not real: #if type(styles) == list:
+                style_t = []
+                for style in styles:
+                    style_t.append(
+                        truncation_latent + truncation * (style - truncation_latent) 
+                    ) # (-1.1162e-03-(-1.0914e-01))*0.8+(-1.0914e-01)
+                styles = style_t
+            else: # styles are latent (tensor: 1,18,512), for real PTI output
+                truncation_latent = truncation_latent.repeat(18,1).unsqueeze(0) # (1,512) --> (1,18,512)
+                styles = torch.add(truncation_latent,torch.mul(torch.sub(styles,truncation_latent),truncation))
+                # print('now styles after truncation : ', styles)
+        #if type(styles) == list and len(styles) < 2: # this if for input as list of [(1,512)]
+        if not real:
+            if len(styles) < 2:
+                inject_index = self.n_latent
+                if styles[0].ndim < 3:
+                    latent = styles[0].unsqueeze(1).repeat(1, inject_index, 1)
+                else:
+                    latent = styles[0]
+            elif type(styles) == list:
+                if inject_index is None:
+                    inject_index = 4
+                
+                latent = styles[0].unsqueeze(0)
+                if latent.shape[1] == 1:
+                    latent = latent.repeat(1, inject_index, 1)
+                else:
+                    latent = latent[:, :inject_index, :]
+                latent2 = styles[1].unsqueeze(1).repeat(1, self.n_latent - inject_index, 1)
+                latent = torch.cat([latent, latent2], 1)
+        else: # input is tensor of size with torch.Size([1, 18, 512]), for real PTI output
+            latent = styles
 
-            for style in styles:
-                style_t.append(
-                    truncation_latent + truncation * (style - truncation_latent)
-                )
-
-            styles = style_t
-        if len(styles) < 2:
-            inject_index = self.n_latent
-            
-            if styles[0].ndim < 3:
-                latent = styles[0].unsqueeze(1).repeat(1, inject_index, 1)
-            else:
-                latent = styles[0]
-
-        else:
-            if inject_index is None:
-                inject_index = 4
-            
-            latent = styles[0].unsqueeze(0)
-            if latent.shape[1] == 1:
-                latent = latent.repeat(1, inject_index, 1)
-            else:
-                latent = latent[:, :inject_index, :]
-            latent2 = styles[1].unsqueeze(1).repeat(1, self.n_latent - inject_index, 1)
-
-            latent = torch.cat([latent, latent2], 1)
+        # print(f'processed latent: {latent.shape}')
 
         features = {}
         out = self.input(latent)

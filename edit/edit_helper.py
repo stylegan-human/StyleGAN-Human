@@ -75,21 +75,28 @@ def decoder(G, style_space, latent, noise):
 
 def encoder_ifg(G, noise, attr_name, truncation=1, truncation_latent=None, 
                   latent_dir='latent_direction/ss/',
-                  step=0, total=0):
-    styles = [noise]
+                  step=0, total=0, real=False):
+    if not real:
+        styles = [noise]
+        styles = [G.style(s) for s in styles]
     style_space = []
-    styles = [G.style(s) for s in styles]
+    
     if truncation<1:
-        style_t = []
-        for style in styles:
-            style_t.append(
-                truncation_latent + truncation * (style - truncation_latent)
-            )
-        styles = style_t
+        if not real: 
+            style_t = []
+            for style in styles:
+                style_t.append(truncation_latent + truncation * (style - truncation_latent))
+            styles = style_t
+        else: # styles are latent (tensor: 1,18,512), for real PTI output
+            truncation_latent = truncation_latent.repeat(18,1).unsqueeze(0) # (1,512) --> (1,18,512)
+            styles = torch.add(truncation_latent,torch.mul(torch.sub(noise,truncation_latent),truncation))
+
 
     noise = [getattr(G.noises, 'noise_{}'.format(i)) for i in range(G.num_layers)]
-    inject_index = G.n_latent
-    latent = styles[0].unsqueeze(1).repeat(1, inject_index, 1)
+    if not real:
+        inject_index = G.n_latent
+        latent = styles[0].unsqueeze(1).repeat(1, inject_index, 1)
+    else: latent=styles
 
     style_space.append(G.conv1.conv.modulation(latent[:, 0]))
     i = 1
@@ -115,21 +122,30 @@ def encoder_ifg(G, noise, attr_name, truncation=1, truncation_latent=None,
 def encoder_ss(G, noise, attr_name, truncation=1, truncation_latent=None, 
                statics_dir="latent_direction/ss_statics",
                latent_dir="latent_direction/ss/",
-               step=0, total=0):
-    styles = [noise]
+               step=0, total=0,real=False):
+    if not real:
+        styles = [noise]
+        styles = [G.style(s) for s in styles]
     style_space = []
-    styles = [G.style(s) for s in styles]
+
     if truncation<1:
-        style_t = []
-        for style in styles:
-            style_t.append(
-                truncation_latent + truncation * (style - truncation_latent)
-            )
-        styles = style_t
+        if not real:
+            style_t = []
+            for style in styles:
+                style_t.append(
+                    truncation_latent + truncation * (style - truncation_latent)
+                )
+            styles = style_t
+        else: # styles are latent (tensor: 1,18,512), for real PTI output
+            truncation_latent = truncation_latent.repeat(18,1).unsqueeze(0) # (1,512) --> (1,18,512)
+            styles = torch.add(truncation_latent,torch.mul(torch.sub(noise,truncation_latent),truncation))
 
     noise = [getattr(G.noises, 'noise_{}'.format(i)) for i in range(G.num_layers)]
-    inject_index = G.n_latent
-    latent = styles[0].unsqueeze(1).repeat(1, inject_index, 1)
+    
+    if not real:
+        inject_index = G.n_latent
+        latent = styles[0].unsqueeze(1).repeat(1, inject_index, 1)
+    else: latent = styles
 
     style_space.append(G.conv1.conv.modulation(latent[:, 0]))
     i = 1
@@ -163,21 +179,30 @@ def encoder_ss(G, noise, attr_name, truncation=1, truncation_latent=None,
 
 def encoder_sefa(G, noise, attr_name, truncation=1, truncation_latent=None, 
                   latent_dir='latent_direction/sefa/',
-                  step=0, total=0):
-    styles = [noise]
-    styles = [G.style(s) for s in styles]
+                  step=0, total=0, real=False):
+    if not real: 
+        styles = [noise]
+        styles = [G.style(s) for s in styles]
+    
     if truncation<1:
-        style_t = []
-        for style in styles:
-            style_t.append(
-                truncation_latent + truncation * (style - truncation_latent)
-            )
-        styles = style_t
+        if not real:
+            style_t = []
+            for style in styles:
+                style_t.append(
+                    truncation_latent + truncation * (style - truncation_latent)
+                )
+            styles = style_t
+        else:
+            truncation_latent = truncation_latent.repeat(18,1).unsqueeze(0) # (1,512) --> (1,18,512)
+            styles = torch.add(truncation_latent,torch.mul(torch.sub(noise,truncation_latent),truncation))
+
 
     noise = [getattr(G.noises, 'noise_{}'.format(i)) for i in range(G.num_layers)]
-    inject_index = G.n_latent
-    latent = styles[0].unsqueeze(1).repeat(1, inject_index, 1)
-
+    if not real:
+        inject_index = G.n_latent
+        latent = styles[0].unsqueeze(1).repeat(1, inject_index, 1)
+    else: latent = styles
+    
     layer, strength = attr_dict['sefa'][attr_name] 
 
     sefa_vect = torch.load(os.path.join(latent_dir, '{}.pt'.format(attr_name))).to(latent.device).float()

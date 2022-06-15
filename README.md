@@ -170,11 +170,16 @@ python insetgan.py --body_network=pretrained_models/stylegan_human_v2_1024.pkl -
 
 ## Results
 
-### Editing
+### Editing 
 ![](./img/editing.gif)
 
 ### InsetGAN re-implementation
 ![](./img/insetgan.gif)
+
+### Editing with inverted real image
+(from left to right: real image | inverted image | InterFaceGAN result | StyleSpace result | SeFa result)
+
+https://user-images.githubusercontent.com/98547009/173773800-bb7fe54a-84d3-4b30-9864-a6b7b311f8ff.mp4
 
 
 ### For more demo, please visit our [**web page**](https://stylegan-human.github.io/) .

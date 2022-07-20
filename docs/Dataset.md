@@ -16,10 +16,10 @@ You agree not to reproduce, duplicate, copy, sell, trade, resell or exploit any 
 
 You agree NOT to further copy, publish or distribute any portion of SHHQ to any third party for any purpose. Except, for internal use at a single site within the same organization it is allowed to make copies of the dataset.
 
-The SenseTime Reasearch and Shanghai AI Lab reserves the right to terminate your access to the SHHQ at any time.
+Shanghai AI Lab reserves the right to terminate your access to the SHHQ at any time.
 
 ## Download Instructions
 Please download the SHHQ Dataset Release Agreement from [link](./SHHQ_Dataset_Release_Agreement.pdf).
 Read it carefully, complete and sign it appropriately. 
 
-Please send the completed form to Jianglin Fu (fujianglin@sensetime.com) and Shikai Li (lishikai@sensetime.com), and cc to Wayne Wu(wuwenyan0503@gmail.com) using institutional email address. The email Subject Title is "SHHQ Dataset Release Agreement". We will verify your request and contact you with the dataset link and password to unzip the image data.
+Please send the completed form to Jianglin Fu (arlenefu@outlook.com) and Shikai Li (lishikai@pjlab.org.cn), and cc to Wayne Wu(wuwenyan0503@gmail.com) using institutional email address. The email Subject Title is "SHHQ Dataset Release Agreement". We will verify your request and contact you with the dataset link and password to unzip the image data.

@@ -22,4 +22,4 @@ The SenseTime Reasearch and Shanghai AI Lab reserves the right to terminate your
 Please download the SHHQ Dataset Release Agreement from [link](./SHHQ_Dataset_Release_Agreement.pdf).
 Read it carefully, complete and sign it appropriately. 
 
-Please send the completed form to Jianglin Fu (fujianglin@sensetime.com) and Shikai Li (lishikai@sensetime.com), and cc to Wayne Wu(wuwenyan0503@gmail.com) using institutional email address. The email Subject Title is "SHHQ Dataset Release Agreement". We will verify your request and contact you with the dataset link and password to unzip the image data.
+Please send the completed form to Jianglin Fu (fujianglin@sensetime.com) and Shikai Li (lishikai@sensetime.com), and cc to Wayne Wu (wuwenyan0503@gmail.com) using institutional email address. The email Subject Title is "SHHQ Dataset Release Agreement". We will verify your request and contact you with the dataset link and password to unzip the image data.

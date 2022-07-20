@@ -15,7 +15,7 @@
 **[[Demo Video]](https://youtu.be/nIrb9hwsdcI)** | **[[Project Page]](https://stylegan-human.github.io/)** | **[[Paper]](https://arxiv.org/pdf/2204.11823.pdf)**
 
 ## Updates
-- [20/07/2022] [SHHQ-1.0](./docs/Dataset.md) with 40K images is released. 
+- [20/07/2022] [SHHQ-1.0](./docs/Dataset.md) with 40K images is released! :sparkles:
 - [15/06/2022] Data alignment and real-image inversion scripts are released. 
 - [26/04/2022] Technical report released!
 - [22/04/2022] Technical report will be released before May.

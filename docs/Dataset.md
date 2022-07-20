@@ -1,11 +1,10 @@
 # SHHQ Dataset
 
 ## Overview
-SHHQ is a dataset with 230K clean full-body human images with a resolution of 1024 × 512.
-Since we need to follow a rigorous legal review in our institute, please understand that we can not release all data at once.
+SHHQ is a dataset with high-quality full-body human images in a resolution of 1024 × 512.
+Since we need to follow a rigorous legal review in our institute, we can not release all of the data at once.
 
-For now, SHHQ-1.0 with 40K full-body images is released, which is already capable of achieving comparable results
-to the full set in our experiments. More data will be released in later versions!
+For now, SHHQ-1.0 with 40K images is released! More data will be released in the later versions.
 
 ## Data License
 We are aware of privacy concerns and seriously treat the license and privacy issues. All released data will be ensured under the license of Creative Commons Attribution 2.0 Generic (CC-BY-2.0) and free for research use. Also, persons in the dataset are anonymised without additional private or sensitive metadata.

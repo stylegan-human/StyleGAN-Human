@@ -24,6 +24,8 @@
 ## Data Download
 The first version SHHQ-1.0, with 40K images is released. To download and use the dataset set, please read the instructions in [Dataset.md](./docs/Dataset.md)
 
+（We are currently facing large incoming applications, and we need to carefully verify all the applicants, please be patient, and we will reply to you as soon as possible.）
+
 ## Model Zoo
 
 | Structure | 1024x512 | Metric | Scores |  512x256 | Metric | Scores | 

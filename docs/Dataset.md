@@ -11,7 +11,7 @@ For now, SHHQ-1.0 with 40K images is released! More data will be released in the
 ## Data Sources
 Images are collected in two main ways: 
 1) From the Internet. 
-We developed a crawler tool with an official API, mainly downloading images from Flickr, Pixabay and Pexels. Images were collected under the CC0 license.
+We developed a crawler tool with an official API, mainly downloading images from Flickr, Pixabay and Pexels. So you need to meet all the following licenses when using the dataset: CC0, [Pixabay License](https://pixabay.com/service/license/), and [Pexels Licenses](https://www.pexels.com/license/).
 2) From the data providers. 
 We purchased images from databases of individual photographers, modeling agencies and other suppliers.
 Images were reviewed by our legal team prior to purchase to ensure permission for use in research.
@@ -20,8 +20,8 @@ Images were reviewed by our legal team prior to purchase to ensure permission fo
 The composition of SHHQ-1.0: 
 
 1) Images obtained from the above sources.
-2) Processed 9991 DeepFashion images (retain only full body images).
-3) 1940 African images from the InFashAI [[1]](#1) dataset to increase data diversity.
+2) Processed 9991 DeepFashion [[1]](#1) images (retain only full body images).
+3) 1940 African images from the InFashAI [[2]](#2) dataset to increase data diversity.
 
 ## Data License
 We are aware of privacy concerns and seriously treat the license and privacy issues. All released data will be ensured under the license of CC0 and free for research use. Also, persons in the dataset are anonymised without additional private or sensitive metadata.
@@ -52,4 +52,8 @@ We are currently facing large incoming applications, and we need to carefully ve
 
 ## References
 <a id="1">[1]</a> 
-Hacheme, G., Sayouti, N.: Neural fashion image captioning: Accounting for data diversity. arXiv preprint arXiv:2106.12154 (2021)
+Liu, Ziwei and Luo, Ping and Qiu, Shi and Wang, Xiaogang and Tang, Xiaoou. DeepFashion: Powering Robust Clothes Recognition and Retrieval with Rich Annotations. CVPR (2016)
+
+<a id="2">[2]</a> 
+Hacheme, Gilles and Sayouti, Noureini. Neural fashion image captioning: Accounting for data diversity. arXiv preprint arXiv:2106.12154 (2021)
+

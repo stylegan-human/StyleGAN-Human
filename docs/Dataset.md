@@ -11,7 +11,7 @@ For now, SHHQ-1.0 with 40K images is released! More data will be released in the
 ## Data Sources
 Images are collected in two main ways: 
 1) From the Internet. 
-We developed a crawler tool with an official API, mainly downloading images from Flickr, Unsplash, Pixabay and Pexels. Images were collected under the CC-BY-2.0 license.
+We developed a crawler tool with an official API, mainly downloading images from Flickr, Pixabay and Pexels. Images were collected under the CC0 license.
 2) From the data providers. 
 We purchased images from databases of individual photographers, modeling agencies and other suppliers.
 Images were reviewed by our legal team prior to purchase to ensure permission for use in research.
@@ -24,7 +24,7 @@ The composition of SHHQ-1.0:
 3) 1940 African images from the InFashAI [[1]](#1) dataset to increase data diversity.
 
 ## Data License
-We are aware of privacy concerns and seriously treat the license and privacy issues. All released data will be ensured under the license of Creative Commons Attribution 2.0 Generic (CC-BY-2.0) and free for research use. Also, persons in the dataset are anonymised without additional private or sensitive metadata.
+We are aware of privacy concerns and seriously treat the license and privacy issues. All released data will be ensured under the license of CC0 and free for research use. Also, persons in the dataset are anonymised without additional private or sensitive metadata.
 
 ## Agreement
 The SHHQ is available for non-commercial research purposes only. 

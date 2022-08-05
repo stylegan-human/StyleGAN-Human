@@ -1,3 +1,6 @@
+# Copyright (c) SenseTime Research. All rights reserved.
+
+
 import os
 from torch.utils.data import Dataset
 from PIL import Image

@@ -330,7 +330,7 @@ Examples:
 \b
 # Combine the generate human full-body image from the provided StyleGAN-Human pre-trained model
 # and the generated face image from FFHQ model, optimize both latent codes to produce the coherent face-body image
-python insetgan.py python insetgan.py --body_network=pretrained_models/stylegan_human_v2_1024.pkl --face_network=pretrained_models/ffhq.pkl \\
+python insetgan.py --body_network=pretrained_models/stylegan_human_v2_1024.pkl --face_network=pretrained_models/ffhq.pkl \\
     --body_seed=82 --face_seed=43  --trunc=0.6 --outdir=outputs/insetgan/ --video 1 
 """
 

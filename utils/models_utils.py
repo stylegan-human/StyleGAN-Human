@@ -1,3 +1,6 @@
+# Copyright (c) SenseTime Research. All rights reserved.
+
+
 import pickle
 import functools
 import torch

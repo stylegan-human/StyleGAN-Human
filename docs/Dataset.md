@@ -38,7 +38,20 @@ Shanghai AI Lab reserves the right to terminate your access to the SHHQ at any t
 ## Dataset Preview
 For those interested in our dataset, we provide a preview version with 100 images randomly sampled from SHHQ-1.0: [SHHQ-1.0_samples](https://drive.google.com/file/d/1tnNFfmFtzRbYL3qEnNXQ_ShaN9YV5tI5/view?usp=sharing).
 
+In SHHQ-1.0, we provide aligned raw images along with machine-calculated segmentation masks. Later we are planning to release manually annotated human-parsing version of these 40,000 images. Please stay tuned. 
+ 
+> We also provide script [bg_white.py](../bg_white.py) to whiten the background of the raw image using its segmentation mask.
+
 If you want to access the full SHHQ-1.0, please read the following instructions.
+
+## Model trained using SHHQ-1.0
+
+| Structure | 1024x512 | Metric | Scores |  512x256 | Metric | Scores | 
+| --------- |:----------:| :----------:| :----------:|  :-----: |  :-----: |  :-----: | 
+| StyleGAN1 | to be released | - | - | to be released | - | - |
+| StyleGAN2 | [SHHQ-1.0_sg2_1024.pkl](https://drive.google.com/file/d/1PuvE72xpc69Zq4y58dohuKbG9dFnnjEX/view?usp=sharing) | fid50k_full | 3.56 | [SHHQ-1.0_sg2_512.pkl](https://drive.google.com/file/d/170t2FRWxR8_TG3_y0nVtDBogLPOClnyf/view?usp=sharing) | fid50k_full | 3.68 |
+| StyleGAN3 | to be released | - | - |to be released | - | - |
+
 
 ## Download Instructions
 Please download the SHHQ Dataset Release Agreement from [link](./SHHQ_Dataset_Release_Agreement.pdf).
@@ -48,7 +61,9 @@ Please send the completed form to Jianglin Fu (arlenefu@outlook.com) and Shikai 
 
 Note:
 
-We are currently facing large incoming applications, and we need to carefully verify all the applicants, please be patient, and we will reply to you as soon as possible.
+1. We are currently facing large incoming applications, and we need to carefully verify all the applicants, please be patient, and we will reply to you as soon as possible.
+
+2. The signature in the agreement should be hand-written.
 
 ## References
 <a id="1">[1]</a> 

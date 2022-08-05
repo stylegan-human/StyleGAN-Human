@@ -1,3 +1,6 @@
+# Copyright (c) SenseTime Research. All rights reserved.
+
+
 import numpy as np
 from PIL import Image
 import wandb

@@ -76,6 +76,20 @@ LD_LIBRARY_PATH=; python generate.py --outdir=out/stylegan_human_v2_1024 --trunc
 
 2. We found the following troubleshooting links might be helpful: [1.](https://github.com/NVlabs/stylegan3), [2.](https://github.com/NVlabs/stylegan3/blob/main/docs/troubleshooting.md)
 
+### Train
+The training scripts are based on the original [stylegan1](https://github.com/NVlabs/stylegan), [stylegan2-ada](https://github.com/NVlabs/stylegan2-ada-pytorch), and [stylegan3](https://github.com/NVlabs/stylegan3) with minor changes. Here we only provide the scripts with modifications for SG2 and SG3. You can replace the old files with the provided scripts to train. (assume SHHQ-1.0 is placed under data/)
+
+#### Train Stylegan2-ada-pytorch with SHHQ-1.0
+```
+python train.py --outdir=training_results/sg2/ --data=data/SHHQ-1.0/ \
+    --gpus=8 --aug=noaug --mirror=1 --snap=250 --cfg=shhq --square=False
+```
+#### Train Stylegan3 with SHHQ-1.0 
+```
+python train.py --outdir=training_results/sg3/ --cfg=stylegan3-r --gpus=8 --batch=32 --gamma=12.4 \
+    --mirror=1 --aug=noaug --data=data/SHHQ-1.0/ --square=False --snap=250
+```
+
 ### Pretrained models
 Please put the downloaded pretrained models [from above link](#Model-Zoo) under the folder 'pretrained_models'.
 

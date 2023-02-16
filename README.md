@@ -15,6 +15,7 @@
 **[[Demo Video]](https://youtu.be/nIrb9hwsdcI)** | **[[Project Page]](https://stylegan-human.github.io/)** | **[[Paper]](https://arxiv.org/pdf/2204.11823.pdf)**
 
 ## Updates
+- [13/02/2023] :star2::star2::star2: **Now the human parsing and keypoints for SHHQ-1.0 are available!**
 - [14/12/2022] :fire::fire::fire:**We have released [3DHumanGAN](https://3dhumangan.github.io/), which is towards photo-realistic 3D-aware human generation!**:fire::fire::fire:
 - [28/09/2022] :fire::fire::fire:**We have released a high-quality 3D human generative model [EVA3D](https://hongfz16.github.io/projects/EVA3D.html)!**:fire::fire::fire:
 - [20/07/2022] [SHHQ-1.0](./docs/Dataset.md) dataset with 40K images is released! :sparkles:

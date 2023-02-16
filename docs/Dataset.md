@@ -7,6 +7,31 @@ Since we need to follow a rigorous legal review in our institute, we can not rel
 
 For now, SHHQ-1.0 with 40K images is released! More data will be released in the later versions.
 
+## Annotation
+:fire::fire::fire: Now we release the human parsing annotations along with 2D body keypoints for SHHQ-1.0. :fire::fire::fire:
+
+Parsing images are manually annotated, and keypoints are the combination of detection results from OpenPose and Dlib.
+
+<p align="center"><img src="../img/parsing_demo.png"  height="76%"></p>
+
+The released 25 body-keypoints is inline with OpenPose, and all the keypoints are stored in a single text file in the following format:
+```
+<file_name> <x_0> <y_0> <x_1> <y_1> <x_2> <y_2> ... <x_24> <y_24>
+```
+
+The color labels (in RGB) for 16 categories in the annotation file listed below:
+| Class ID | Label          | Color Code      | Class ID | Label          | Color Code      |
+| :-------:|:---------------| :---------------| :-------:|:---------------| :---------------|
+| 1        | Headwear       | (127, 255, 212) | 2        | Hair           | (255, 0,   0)   |
+| 3        | Glove          | (213, 140, 88)  | 4        | Eyeglasses     | (0,   100, 0)   |
+| 5        | Tops           | (255, 250, 250) | 6        | Dress          | (255, 250, 205) |
+| 7        | Coat           | (220, 220, 220) | 8        | Socks          | (160, 140, 88)  |
+| 9        | Pants          | (211, 211, 211) | 10       | Skin           | (144, 238, 144) |
+| 11       | Scarf          | (150, 26,  181) | 12       | Skirt          | (250, 235, 215) |
+| 13       | Face           | (16,  78,  139) | 14       | Shoes          | (245, 222, 179) |
+| 15       | Bag            | (255, 140, 0)   | 16       | Accessories    | (50,  205, 50)  |
+
+#### Note: all the parsing images are in ''.png'' format
 
 ## Data Sources
 Images are collected in two main ways: 

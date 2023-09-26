@@ -217,6 +217,7 @@ https://user-images.githubusercontent.com/98547009/173773800-bb7fe54a-84d3-4b30-
 
 
 ## Related Works
+* (ICCV 2023) **UnitedHuman: Harnessing Multi-Source Data for High-Resolution Human Generation**, Jianglin Fu et al. [[Paper](https://arxiv.org/abs/2309.14335)], [[Code](https://github.com/UnitedHuman/UnitedHuman)], [[Project Page](https://unitedhuman.github.io/)]
 * (SIGGRAPH 2022) **Text2Human: Text-Driven Controllable Human Image Generation**, Yuming Jiang et al. [[Paper](https://arxiv.org/pdf/2205.15996.pdf)], [[Code](https://github.com/yumingj/Text2Human)], [[Project Page](https://yumingj.github.io/projects/Text2Human.html)], [[Dataset](https://github.com/yumingj/DeepFashion-MultiModal)]
 * (ICCV 2021) **Talk-to-Edit: Fine-Grained Facial Editing via Dialog**, Yuming Jiang et al. [[Paper](https://arxiv.org/abs/2109.04425)], [[Code](https://github.com/yumingj/Talk-to-Edit)], [[Project Page](https://www.mmlab-ntu.com/project/talkedit/)], [[Dataset](https://mmlab.ie.cuhk.edu.hk/projects/CelebA/CelebA_Dialog.html)]
 * (Technical Report 2022) **Generalizable Neural Performer: Learning Robust Radiance Fields for Human Novel View Synthesis**, Wei Cheng et al. [[Paper](https://arxiv.org/pdf/2204.11798.pdf)], [[Code](https://github.com/generalizable-neural-performer/gnr)], [[Project Page](https://generalizable-neural-performer.github.io/)], [[Dataset](https://generalizable-neural-performer.github.io/genebody.html)]

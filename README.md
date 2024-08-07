@@ -42,9 +42,10 @@ The first version SHHQ-1.0, with 40K images is released. To download and use the
 
 ## Web Demo 
 
+
 Integrated into [Huggingface Spaces 🤗](https://huggingface.co/spaces) using [Gradio](https://github.com/gradio-app/gradio). Try out the Web Demo for generation: [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/hysts/StyleGAN-Human) and interpolation [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/hysts/StyleGAN-Human-Interpolation)
 
-
+Integrated into [replicate](https://replicate.com/stylegan-human/StyleGAN-Human/badge) using [cog](https://github.com/replicate/cog). Try the web-demo for style-mixing  <a href="https://replicate.com/stylegan-human/StyleGAN-Human"><img src="https://replicate.com/stylegan-human/StyleGAN-Human/badge"></a>
 
 <a href="https://colab.research.google.com/drive/1sgxoDM55iM07FS54vz9ALg1XckiYA2On"><img src="https://colab.research.google.com/assets/colab-badge.svg" height=22.5></a> 
 

@@ -17,7 +17,7 @@ import PIL.Image
 import json
 import torch
 import dnnlib
-from petrel_client.client import Client
+#from petrel_client.client import Client
 import cv2
 
 

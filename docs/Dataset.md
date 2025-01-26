@@ -79,16 +79,13 @@ If you want to access the full SHHQ-1.0, please read the following instructions.
 
 
 ## Download Instructions
-Please download the SHHQ Dataset Release Agreement from [link](./SHHQ_Dataset_Release_Agreement.pdf).
-Read it carefully, complete and sign it appropriately. 
+We are pleased to announce that our dataset is now publicly available. By default, it is only permitted for academic research purposes.
+Please note that any use of the dataset must comply with relevant laws and regulations. We reserve the right to take legal action against any unauthorized use.
+Dataset Link: [Link](https://drive.google.com/drive/folders/1RCW5WfHpF21yYYmjWZKS0aB2ikaF-fIM?usp=sharing)
+Password: [StylisH-HumanS-hq_1.0]
 
-Please send the completed form to Jianglin Fu (arlenefu@outlook.com) and Shikai Li (lishikai@pjlab.org.cn), and cc to Wayne Wu (wuwenyan0503@gmail.com) using institutional email address. The email Subject Title is "SHHQ Dataset Release Agreement". We will verify your request and contact you with the dataset link and password to unzip the image data.
+We hope this dataset will contribute to the academic community and look forward to seeing the valuable research results it may inspire.
 
-Note:
-
-1. We are currently facing large incoming applications, and we need to carefully verify all the applicants, please be patient, and we will reply to you as soon as possible.
-
-2. The signature in the agreement should be hand-written.
 
 ## References
 <a id="1">[1]</a> 
